@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor Word-Excel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Convertir Documentos</h1>
+
+    <!-- Formulario para subir Word y convertir a Excel -->
+    <form id="wordToExcelForm" action="/convert/WordToExcel" method="POST" enctype="multipart/form-data">
+        <h2>Convertir Word a Excel</h2>
+        <input type="file" name="file" accept=".docx" required>
+        <button type="submit">Convertir a Excel</button>
+    </form>
+
+    <!-- Formulario para subir Excel y convertir a Word -->
+    <form id="excelToWordForm" action="/convert/excelToWord" method="POST" enctype="multipart/form-data">
+        <h2>Convertir Excel a Word</h2>
+        <input type="file" name="file" accept=".xlsx" required>
+        <button type="submit">Convertir a Word</button>
+    </form>
+
+    <form id="pdfToWordForm" action="/convert/PdfToWord" method="POST" enctype="multipart/form-data">
+        <h2>Convertir PDF a Word</h2>
+
+        <input type="file"  name="file" accept=".pdf" required>
+        <button type="submit">Convertir PDF a Word</button>
+    </form>
+
+    <form id="wordToPdfForm" action="convert/WordToPdf" method="POST" enctype="multipart/form-data">
+       <h2>Convertir word a PDF</h2>
+        <input type="file" id="file" name="file" accept=".doc,.docx" required>
+        <button type="submit">Convertir Word a PDF</button>
+    </form>
+    
+</body>
+</html>
