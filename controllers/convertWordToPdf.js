@@ -1,26 +1,39 @@
-import fs from 'fs/promises';
-import { default as docxPdf } from 'docx-pdf';
-const toPdf = docxPdf.toPdf;
-
+import fs from 'fs/promises'
+import docxPdf from 'docx-pdf'
 const convertWordToPdf = async (req, res) => {
     try {
-        const wordPath = req.file.path;  // Asegúrate de que el archivo Word se suba correctamente
-
-        // Leer el archivo Word y convertirlo a PDF
+        const wordPath = req.file.path;
         const pdfPath = `uploads/${Date.now()}_converted.pdf`;
-        await toPdf(wordPath, pdfPath);
 
-        // Descargar el archivo PDF
+        // Convert Word to PDF using docx-pdf
+        await new Promise((resolve, reject) => {
+            docxPdf(wordPath, pdfPath, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+
+        // Verify if the PDF file was generated
+        console.log('Archivo PDF generado en:', pdfPath);
+        const pdfExists = await fs.access(pdfPath).then(() => true).catch(() => false);
+        if (!pdfExists) {
+            throw new Error('El archivo PDF no se generó correctamente');
+        }
+
+        // Download the PDF file
         res.download(pdfPath, 'converted.pdf', async (err) => {
             if (err) {
                 console.error('Error al descargar el archivo:', err);
                 return res.status(500).send('Error al descargar el archivo.');
             }
 
-            // Eliminar archivos temporales
+            // Delete temporary files
             try {
-                await fs.unlink(wordPath);  // Eliminar el archivo Word original
-                await fs.unlink(pdfPath);   // Eliminar el archivo PDF generado
+                await fs.unlink(wordPath);
+                await fs.unlink(pdfPath);
             } catch (deleteError) {
                 console.error('Error al eliminar archivos:', deleteError);
             }
@@ -31,4 +44,4 @@ const convertWordToPdf = async (req, res) => {
     }
 };
 
-export default { convertWordToPdf };
+export default {convertWordToPdf}
