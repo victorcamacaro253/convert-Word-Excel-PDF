@@ -107,8 +107,31 @@ h2 {
     background-color: #f0f0f0;
 }
 
-button {
+.excelWord {
     background-color: #28a745;
+    color: white;
+    border: none;
+    margin-top: 6px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.wordExcel{
+    background-color: #347dea;
+    color: white;
+    border: none;
+    margin-top: 6px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+.pdfWord {
+    background-color: #d84737;
     color: white;
     border: none;
     margin-top: 6px;

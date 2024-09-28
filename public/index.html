@@ -31,7 +31,6 @@
 					<li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
 					<li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
 					<li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
-					<li><a href="index - ingles.html">EN INGLES</a></li>
 
 
 				</ul>
@@ -56,7 +55,7 @@
             <img src="./img/nube.png" alt="Icono de archivo" class="drop-zone__icon" id="dropZoneIcon">
             <input type="file" name="file" accept=".docx" class="drop-zone__input" required>
         </div>
-        <button type="submit">Convertir a Excel</button>
+        <button type="submit" class="excelWord">Convertir a Excel</button>
     </form>
 
     <!-- Formulario para subir Excel y convertir a Word -->
@@ -68,7 +67,7 @@
 
             <input type="file" name="file" accept=".xlsx" class="drop-zone__input" required>
         </div>
-        <button type="submit">Convertir a Word</button>
+        <button type="submit" class="wordExcel" >Convertir a Word</button>
     </form>
 
     <!-- Formulario para convertir PDF a Word -->
@@ -80,7 +79,7 @@
 
             <input type="file" name="file" accept=".pdf" class="drop-zone__input" required>
         </div>
-        <button type="submit">Convertir a Word</button>
+        <button type="submit" class="wordExcel">Convertir a Word</button>
     </form>
 
     <!-- Formulario para convertir Word a PDF -->
@@ -92,7 +91,8 @@
 
             <input type="file" name="file" accept=".doc, .docx" class="drop-zone__input" required>
         </div>
-        <button type="submit">Convertir a PDF</button>
+        <button type="submit"  class="pdfWord">Convertir a PDF</button>
+
     </form>
 
     <script src="script.js"></script>
