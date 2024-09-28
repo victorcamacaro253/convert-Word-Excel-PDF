@@ -5,36 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convertidor Word-Excel</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+
 </head>
 <body>
+    <!--Menu encabezado-->
+	<div class="contenedor-header">
+		<header>
+			<div class="logo">
+				<a href="#">Victor</a>
+				<div class="theme-toggler">
+					<span class="material-icons-sharp ">light_mode</span>
+					<span class="material-icons-sharp active">dark_mode</span>
+					
+				</div>
+				
+			</div>
+			<nav id="nav" >
+				<ul class="ul">
+					<li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+					<li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+					<li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+					<li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+					<li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+					<li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+					<li><a href="index - ingles.html">EN INGLES</a></li>
+
+
+				</ul>
+				
+			</nav>
+			<div class="nav-responsive" onclick="MostrarOcultarMenu()">
+				<i class="fa-solid fa-bars"></i>
+				
+			</div>
+			
+		</header>
+		
+	</div>
+
     <h1>Convertir Documentos</h1>
 
     <!-- Formulario para subir Word y convertir a Excel -->
     <form id="wordToExcelForm" action="/convert/WordToExcel" method="POST" enctype="multipart/form-data">
-        <h2>Convertir Word a Excel</h2>
-        <input type="file" name="file" accept=".docx" required>
+        <h2>Convertir Word a Excel </h2>
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Arrastra el archivo aquí o haz clic para seleccionar</span>
+            <img src="./img/nube.png" alt="Icono de archivo" class="drop-zone__icon" id="dropZoneIcon">
+            <input type="file" name="file" accept=".docx" class="drop-zone__input" required>
+        </div>
         <button type="submit">Convertir a Excel</button>
     </form>
 
     <!-- Formulario para subir Excel y convertir a Word -->
     <form id="excelToWordForm" action="/convert/excelToWord" method="POST" enctype="multipart/form-data">
         <h2>Convertir Excel a Word</h2>
-        <input type="file" name="file" accept=".xlsx" required>
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Arrastra el archivo aquí o haz clic para seleccionar</span>
+            <img src="./img/nube.png" alt="Icono de archivo" class="drop-zone__icon" id="dropZoneIcon">
+
+            <input type="file" name="file" accept=".xlsx" class="drop-zone__input" required>
+        </div>
         <button type="submit">Convertir a Word</button>
     </form>
 
+    <!-- Formulario para convertir PDF a Word -->
     <form id="pdfToWordForm" action="/convert/PdfToWord" method="POST" enctype="multipart/form-data">
         <h2>Convertir PDF a Word</h2>
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Arrastra el archivo aquí o haz clic para seleccionar</span>
+            <img src="./img/nube.png" alt="Icono de archivo" class="drop-zone__icon" id="dropZoneIcon">
 
-        <input type="file"  name="file" accept=".pdf" required>
-        <button type="submit">Convertir PDF a Word</button>
+            <input type="file" name="file" accept=".pdf" class="drop-zone__input" required>
+        </div>
+        <button type="submit">Convertir a Word</button>
     </form>
 
-    <form id="wordToPdfForm" action="convert/WordToPdf" method="POST" enctype="multipart/form-data">
-       <h2>Convertir word a PDF</h2>
-        <input type="file" id="file" name="file" accept=".doc,.docx" required>
-        <button type="submit">Convertir Word a PDF</button>
+    <!-- Formulario para convertir Word a PDF -->
+    <form id="wordToPdfForm" action="/convert/WordToPdf" method="POST" enctype="multipart/form-data">
+        <h2>Convertir Word a PDF</h2>
+        <div class="drop-zone">
+            <span class="drop-zone__prompt">Arrastra el archivo aquí o haz clic para seleccionar</span>
+            <img src="./img/nube.png" alt="Icono de archivo" class="drop-zone__icon" id="dropZoneIcon">
+
+            <input type="file" name="file" accept=".doc, .docx" class="drop-zone__input" required>
+        </div>
+        <button type="submit">Convertir a PDF</button>
     </form>
-    
+
+    <script src="script.js"></script>
 </body>
 </html>

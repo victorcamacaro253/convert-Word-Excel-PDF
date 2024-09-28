@@ -1,25 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+
+
+:root{
+
+    --color-primary:#7280ec;
+    --color-danger:#ff7782;
+    --color-success:#41f1b6;
+    --color-warning:#ffbb55;
+    --color-white:#fff;
+    --color:#fff;
+    --color-background-1:#1e2326;
+    --color-background-2:#252A2E;
+    --color-background-3:#252a2e;
+    --color-b:#5dfe;
+   --color-1:#1CB698;
+
+}
+
+
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    padding: 50px;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+
+.theme-toggler{
+	background:  #FBF6F6;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 1.5rem;
+	width: 3.5rem;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	margin-right: 25px;
+    margin-left: 15px;
+
+
+}
+
+.theme-toggler span{
+	font-size: 1.2rem;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.theme-toggler span.active{
+	background: #7280ec;
+	color: white;
+	border-radius: 0.4rem;
+}
+
+
+
+h1 {
+    color: #333;
+    padding-top: 60px;
+
+    margin-bottom: 30px;
 }
 
 form {
-    margin: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 300px;
 }
 
-input {
-    margin-right: 10px;
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.drop-zone {
+    max-width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.drop-zone__prompt {
+    color: #999;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone--over {
+    background-color: #f0f0f0;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #28a745;
     color: white;
     border: none;
+    margin-top: 6px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #218838;
 }
+
+.drop-zone__info {
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.drop-zone__icon {
+    font-size: 20px; /* Tamaño del icono */
+    color: #007bff; /* Color del icono */
+    display: block; /* Para centrar */
+    margin: 10px auto; /* Centramos el icono */
+    width: 50px;
+}
+
+
+/* MENU */
+.contenedor-header{
+    background: var(--color-background-1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.contenedor-header header{
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.contenedor-header header .logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+ }
+.contenedor-header header .logo a{
+    font-family: 'Righteous';
+    font-size: 20px;
+    color: #1CB698;
+    text-decoration: none;
+}
+.contenedor-header header ul{
+    display: flex;
+    list-style: none;
+}
+.contenedor-header header nav ul li a{
+    text-align: none;
+    color: var(--color);
+    margin: 0 15px;
+    padding: 3px;
+    transition: .5s;
+    text-decoration: none;
+}
+.contenedor-header header nav ul li a:hover{
+    color: #1CB698;
+}
+
+.nav-responsive{
+    background-color: #1CB698;
+    color: var(--color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
